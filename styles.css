@@ -1,0 +1,600 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+/* Reset de márgenes y padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #a4c639;
+    --secondary-color: #003366;
+    --hover-color: #7b9e33;
+}
+
+.navbar {
+    background-color: var(--secondary-color);
+}
+
+.navbar-links a:hover {
+    color: var(--hover-color);
+}
+
+.framed-section {
+    border: 5px solid #a4c639; /* Verde usado en la página */
+    padding: 20px;
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Efecto de transición para elementos */
+body, .navbar, .accordion, .panel, footer {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Estilo del menú de navegación */
+.navbar {
+    background-color: #1d2d50; /* Color azul oscuro */
+    color: #fff; /* Color del texto en blanco */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.navbar-links {
+    list-style-type: none;
+    display: flex;
+    justify-content: center; /* Asegura que los elementos del menú estén centrados */
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-links li {
+    margin: 0 15px;
+}
+
+.navbar-links a {
+    color: #a4c639; /* Verde para los enlaces del menú */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar-links a:hover {
+    color: #7b9e33; /* Un tono más oscuro de verde al hacer hover */
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-icon {
+    width: 30px;
+    height: 3px;
+    background-color: #1d2d50;
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+/* Estilo para móviles */
+@media only screen and (max-width: 768px) {
+    .navbar {
+        padding: 10px;
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        display: none;
+        width: 100%;
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+
+    .navbar-links li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* Fondo y animaciones */
+body {
+    font-family: "Georgia", "Garamond", serif;
+    margin-top: 80px;
+    background-color: #f8f9fa;
+    background-image: url('marca_de_agua.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Cambia la fuente solo en móviles */
+@media only screen and (max-width: 768px) {
+    body {
+        font-family: 'Roboto', sans-serif; /* Roboto se usa en móviles */
+    }
+}
+
+/* Encabezado principal */
+.header {
+    width: 100%; /* Abarca todo el ancho */
+    background-color: #1d2d50; /* Azul oscuro */
+    color: #fff;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Añade sombra */
+}
+
+
+
+.title-container h1 {
+    color: #a4c639; /* Verde para el título */
+}
+
+.title-container p {
+    color: #fff; /* Texto blanco para el subtítulo */
+}
+
+
+.logo-container, .secondary-logo-container {
+    text-align: center;
+    flex: 1;
+}
+
+.logo, .secondary-logo {
+    width: 100px;
+    height: auto;
+    transition: transform 0.3s;
+}
+
+/* Cambia esta regla para que no haga nada cuando pases el puntero */
+.logo:hover, .secondary-logo:hover {
+    transform: none; /* No cambia el tamaño ni aplica ningún efecto */
+}
+.title-container {
+    display: flex;
+    flex-direction: column; /* Alinea los elementos uno debajo del otro (verticalmente) */
+    justify-content: center; /* Centra el contenido verticalmente */
+    align-items: center; /* Centra el contenido horizontalmente */
+    text-align: center; /* Asegura que el texto también esté centrado */
+    flex: 2;
+}
+
+
+.title-container h1 {
+    font-size: 2rem;
+    color: #a4c639; /* Verde para el texto "Élite Studio" */
+    margin-bottom: 5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.title-container p {
+    font-size: 1rem;
+    color: #ffffff; /* Blanco para el texto "¡La lectura veloz hace la diferencia!" */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo uniforme para todos los párrafos, justificación solo para el texto */
+p {
+    font-size: 1rem;
+    color: #333; /* Color uniforme para todos los párrafos */
+    line-height: 1.6; /* Espaciado entre líneas uniforme */
+    margin-bottom: 20px; /* Espacio uniforme debajo de cada párrafo */
+    text-align: justify; /* Justifica solo el texto */
+}
+
+/* Justificar solo el texto dentro de los párrafos y encabezados de paneles */
+.panel p, .panel ul {
+    margin: 15px 0;
+    font-size: 1rem;
+    color: #333;
+    text-align: justify; /* Justifica el texto dentro de paneles */
+}
+
+/* Asegurar que el contenedor general no esté justificado */
+body, .header, .footer, .navbar, .content-section, .page-content, .framed-section {
+    text-align: initial; /* Mantén esto para asegurar que no se justifiquen */
+}
+
+/* Estilo de paneles */
+.panel p, .panel ul {
+    margin: 15px 0;
+    font-size: 1rem;
+    color: #333;
+    text-align: justify; /* Justifica solo el texto */
+}
+
+/* Diseño de tarjetas para contenido */
+.content-section {
+    padding: 30px;
+    max-width: 900px;
+    margin: 20px auto;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    animation: slideUp 1s ease-in-out;
+}
+
+.content-section h2 {
+    color: #a4c639; /* Color verde que usabas anteriormente */
+    font-size: 28px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #a4c639; /* Borde inferior verde */
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+
+
+
+.accordion {
+    text-align: center;
+    padding: 15px 20px;
+    font-size: 1rem;
+    background-color: #a4c639;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: background-color 0.3s ease, padding 0.3s ease;
+    margin-top: 10px;
+    border-radius: 5px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.accordion:hover, .accordion.active {
+    background-color: #7b9e33; /* Un verde más oscuro al hacer hover o activar el acordeón */
+    padding-left: 20px;
+}
+
+.panel {
+    padding: 15px;
+    display: none;
+    background-color: #f9f9f9;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: justify; /* Asegúrate de que esté aquí */
+}
+
+
+.image-container {
+    text-align: center; /* Centra la imagen */
+    margin: 20px auto 40px auto; /* Añade un margen inferior de 40px para separar el texto */
+}
+
+.image-container img.section-image {
+    max-width: 30%; /* Ajusta el tamaño de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 8px; /* Redondea las esquinas de la imagen */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añade una sombra suave */
+}
+
+.video-container {
+    display: flex;
+    justify-content: center; /* Centra el video horizontalmente */
+    margin-top: 20px;
+}
+
+.video-container video {
+    width: 70%; /* Ajusta este valor para cambiar el tamaño del video */
+    max-width: 300px; /* Define el tamaño máximo del video */
+    height: auto; /* Mantiene la proporción original del video */
+    border-radius: 10px; /* Opcional: redondea las esquinas del video */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añade una sombra suave para darle profundidad */
+}
+
+.image-container-left {
+    float: left; /* Coloca la imagen a la izquierda */
+    margin-right: 15px; /* Espacio entre la imagen y el texto */
+    margin-bottom: 10px; /* Espacio debajo de la imagen */
+}
+
+.image-container-left img {
+    width: 200px; /* Ancho de la imagen */
+    height: 140px; /* Altura de la imagen */
+    border-radius: 8px; /* Redondea las esquinas de la imagen */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade una sombra suave */
+}
+
+.text-content {
+    overflow: hidden; /* Asegura que el texto fluya correctamente alrededor de la imagen */
+}
+
+.panel p, .panel ul {
+    margin: 15px 0;
+    font-size: 1rem;
+    color: #333;
+    text-align: justify; /* Ahora el texto estará justificado */
+}
+
+
+
+.panel ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+/* Estilo de la sección de contacto */
+/* Sección de contacto */
+.contacto-section {
+    background-color: #eaf4d3; /* Fondo verde suave */
+    border: 2px solid #a4c639; /* Borde verde */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px; /* Espacio interno */
+    max-width: 900px; /* Ancho máximo */
+    margin: 40px auto; /* Centrado horizontal y espacio superior/inferior */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Sombra */
+    text-align: center; /* Centra todo el contenido */
+}
+
+/* Estilos del título */
+.contacto-section h2 {
+    font-size: 2rem;
+    color: #1d2d50;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Estilos para la información de contacto */
+.contact-info p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.social-icons img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+}
+.social-icons img:hover {
+    transform: none; /* Sin transformación */
+    box-shadow: none; /* Sin sombra adicional */
+}
+/* Estilo para la nota final */
+.contact-note {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 20px;
+    font-style: italic;
+    font-family: "Georgia", serif;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .contacto-section {
+        padding: 15px;
+    }
+
+    .contact-info p {
+        font-size: 1rem;
+    }
+
+    .social-icons img {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.mission-container {
+    display: flex; /* Flexbox para alinear imagen y texto en línea */
+    align-items: center; /* Alinea verticalmente al centro */
+    justify-content: flex-start; /* Alinea el contenido al principio del contenedor */
+    margin-bottom: 20px; /* Espacio inferior */
+}
+
+.mission-container img.section-image {
+    width: 200px; /* Ancho de la imagen */
+    margin-right: 20px; /* Espacio a la derecha de la imagen */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+.mission-container p {
+    flex: 1; /* El texto ocupará el espacio restante */
+    font-size: 1rem; /* Tamaño de la fuente */
+    color: #333; /* Color del texto */
+    line-height: 1.5; /* Altura de línea para mejorar la legibilidad */
+}
+
+/* Cambiar color del acordeón en pantallas móviles */
+@media only screen and (max-width: 768px) {
+    .accordion {
+        background-color: #a4c639; /* Verde claro para móviles */
+        color: #fff; /* Texto en blanco */
+    }
+
+    .accordion:hover, .accordion.active {
+        background-color: #7b9e33; /* Verde oscuro al activarse en móviles */
+    }
+}
+
+
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Media Queries para hacer la página más atractiva en móviles */
+@media only screen and (max-width: 768px) {
+    .navbar {
+        padding: 10px;
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        display: none;
+        width: 100%;
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+
+    .navbar-links li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .title-container h1 {
+        font-size: 1.5rem;
+    }
+
+    .title-container p {
+        font-size: 0.875rem;
+    }
+
+    .content-section {
+        padding: 20px;
+        max-width: 100%;
+        margin: 10px auto;
+    }
+
+    .content-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .accordion {
+        font-size: 0.875rem;
+    }
+
+    .panel p, .panel ul {
+        font-size: 0.875rem;
+    }
+
+    .contact-note {
+        font-size: 0.875rem;
+    }
+
+    .social-icons img {
+        width: 35px;
+    }
+
+    footer {
+        font-size: 0.875rem;
+    }
+}
+
+/* Estilo para imágenes */
+.section-image {
+    max-width: 100%; /* La imagen no será más ancha que su contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    display: block; /* Asegura que la imagen se muestre como un bloque */
+    margin: 0 auto 30px auto; /* Añade un margen inferior de 30px para separar el texto */
+    border-radius: 8px; /* Redondea las esquinas de la imagen */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añade una sombra suave */
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-icon {
+    width: 30px;
+    height: 3px;
+    background-color: #a4c639; /* Cambia el color de azul a verde */
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* Animación adicional para el menú */
+.navbar-links.active {
+    animation: slideDown 0.5s ease-in-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/* Estilo del pie de página */
+footer {
+    background-color: #1d2d50; /* Fondo azul oscuro */
+    color: #a4c639; /* Texto verde brillante */
+    text-align: center;
+    padding: 15px; /* Reducir el padding para hacerlo más ajustado */
+    margin-top: 10px; /* Reducir el margen superior para moverlo más arriba */
+    border-radius: 0px 0px 5px 5px; /* Bordes solo en la parte inferior */
+    font-family: 'Arial', sans-serif; /* Usa Arial, una fuente limpia y legible */
+    font-size: 0.8rem; /* Tamaño de letra más pequeño */
+    font-weight: normal; /* Hacer el texto más fino */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    width: 100%; /* Ocupar todo el ancho */
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra el contenido verticalmente */
+    align-items: center; /* Centra el contenido horizontalmente */
+}
+
+/* Estilo del texto del pie de página */
+footer p {
+    margin: 3px 0; /* Espaciado más pequeño entre líneas */
+    color: #a4c639; /* Color verde */
+    font-size: 0.8rem; /* Reducir el tamaño de la letra */
+    line-height: 1.2; /* Reducir el espacio entre líneas */
+}
+
+/* Eliminación de margen adicional debajo del contenido */
+body {
+    margin-bottom: 0px; /* Eliminar cualquier espacio en blanco adicional debajo del contenido */
+}
